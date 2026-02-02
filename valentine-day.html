@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝 Valentine's Day Invitation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Floating Hearts Background */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart-float {
+            position: absolute;
+            font-size: 20px;
+            animation: float 10s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        /* Page Styles */
+        .page {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease;
+            text-align: center;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Page 1 - Welcome Messages */
+        .message-container {
+            margin: 30px 0;
+        }
+
+        .message {
+            display: none;
+            font-size: 24px;
+            color: #333;
+            line-height: 1.6;
+            margin: 20px 0;
+            animation: slideIn 0.5s ease;
+        }
+
+        .message.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .message-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Pagination Dots */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #e74c3c;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        /* Buttons */
+        .btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6);
+        }
+
+        /* Page 2 - Question */
+        .question {
+            font-size: 32px;
+            color: #e74c3c;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        .question-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        /* Button Container for Yes/No */
+        .button-container {
+            position: relative;
+            min-height: 250px;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .buttons-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            position: relative;
+        }
+
+        .btn-no {
+            background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        /* Page 3 - Thank You */
+        .thank-you {
+            font-size: 36px;
+            color: #e74c3c;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .thank-you-message {
+            font-size: 20px;
+            color: #555;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .gif-container {
+            margin: 30px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gif-container img {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #f0f;
+            position: absolute;
+            animation: confetti-fall 3s linear;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .page {
+                padding: 30px 20px;
+            }
+            
+            .message {
+                font-size: 20px;
+            }
+            
+            .question {
+                font-size: 26px;
+            }
+            
+            .thank-you {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsBackground"></div>
+
+    <div class="container">
+        <!-- Page 1: Welcome Messages -->
+        <div class="page active" id="page1">
+            <div class="message-icon">💝</div>
+            <div class="message-container">
+                <div class="message active" data-index="0">
+                    <strong>Hey Beautiful! ✨</strong><br>
+                    I have something special to tell you...
+                </div>
+                <div class="message" data-index="1">
+                    <strong>You make my heart skip a beat! 💓</strong><br>
+                    Every moment with you is magical...
+                </div>
+                <div class="message" data-index="2">
+                    <strong>You're like a dream come true! 🌟</strong><br>
+                    Your smile brightens my darkest days...
+                </div>
+                <div class="message" data-index="3">
+                    <strong>Life is better with you! 🌹</strong><br>
+                    I can't imagine my days without you...
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
+            </div>
+            
+            <button class="btn" onclick="goToPage2()">Continue to Explore More 💖</button>
+        </div>
+
+        <!-- Page 2: Valentine Question -->
+        <div class="page" id="page2">
+            <div class="question-icon">💕</div>
+            <div class="question">
+                Will you be my Valentine? 💝
+            </div>
+            <p style="font-size: 18px; color: #666; margin: 20px 0;">
+                This Valentine's Day would be perfect with you! 🌹
+            </p>
+            
+            <div class="button-container">
+                <div class="buttons-wrapper">
+                    <button class="btn btn-yes" onclick="handleYes()">Yes! 💖</button>
+                    <button class="btn btn-no" id="noBtn" onmouseover="moveButton()" onclick="moveButton()">
+                        No 😢
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: Thank You -->
+        <div class="page" id="page3">
+            <div class="thank-you">
+                Yay! Thank You! 🎉💝
+            </div>
+            <div class="thank-you-message">
+                You just made me the happiest person! 😊<br>
+                This Valentine's Day is going to be amazing! 🌹✨<br>
+                Can't wait to celebrate with you! 💕
+            </div>
+            
+            <div class="gif-container">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDRtZjN0dXZ5bnFyOGI2NWh4OWJ4YjR4eHZ4YzR4anRyZGJ5dHl1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26u4cqiYI30juCOGY/giphy.gif" alt="Happy Celebration">
+            </div>
+            
+            <p style="font-size: 20px; color: #e74c3c; margin-top: 30px; font-weight: bold;">
+                Happy Valentine's Day! 💖🎊
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts background
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('heartsBackground');
+            const heartSymbols = ['❤️', '💕', '💖', '💗', '💝', '💘'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 10 + 's';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Page 1: Message pagination
+        let currentMessageIndex = 0;
+        const messages = document.querySelectorAll('.message');
+        const dots = document.querySelectorAll('.dot');
+
+        function showMessage(index) {
+            messages.forEach(msg => msg.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            messages[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentMessageIndex = index;
+        }
+
+        // Auto-advance messages
+        setInterval(() => {
+            if (document.getElementById('page1').classList.contains('active')) {
+                currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+                showMessage(currentMessageIndex);
+            }
+        }, 4000);
+
+        // Dot click handlers
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showMessage(index));
+        });
+
+        // Navigate to Page 2
+        function goToPage2() {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+        }
+
+        // Move "No" button randomly
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const container = document.querySelector('.button-container');
+            
+            // Change to absolute positioning when moving
+            noBtn.style.position = 'absolute';
+            
+            const maxX = container.offsetWidth - noBtn.offsetWidth - 40;
+            const maxY = container.offsetHeight - noBtn.offsetHeight - 40;
+            
+            const randomX = Math.random() * maxX + 20;
+            const randomY = Math.random() * maxY + 20;
+            
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        // Handle "Yes" button
+        function handleYes() {
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('page3').classList.add('active');
+            createConfetti();
+        }
+
+        // Create confetti effect
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f093fb', '#c44569'];
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // Initialize
+        createFloatingHearts();
+    </script>
+</body>
+</html>
