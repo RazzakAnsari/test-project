@@ -379,9 +379,9 @@
 
         /* Page 2 - Question */
         .question {
-            font-size: 38px;
+            font-size: 32px;
             color: #e74c3c;
-            margin: 30px 0;
+            margin: 15px 0 10px;
             font-weight: 800;
             font-family: 'Pacifico', cursive;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -398,8 +398,8 @@
         }
 
         .question-icon {
-            font-size: 100px;
-            margin-bottom: 20px;
+            font-size: 70px;
+            margin-bottom: 15px;
             animation: heartBeat 1.5s infinite;
             filter: drop-shadow(0 10px 30px rgba(255, 105, 180, 0.5));
         }
@@ -417,18 +417,19 @@
         }
 
         .question-subtitle {
-            font-size: 20px;
+            font-size: 17px;
             color: #666;
-            margin: 25px 0;
+            margin: 12px 0;
             font-weight: 400;
+            line-height: 1.5;
         }
 
         /* Button Container for Yes/No */
         .button-container {
             position: relative;
-            min-height: 280px;
-            margin-top: 50px;
-            padding: 30px;
+            min-height: 180px;
+            margin-top: 20px;
+            padding: 20px;
         }
 
         .buttons-wrapper {
@@ -568,11 +569,12 @@
             background: #fff9e6;
             border: 2px dashed #f5576c;
             border-radius: 15px;
-            padding: 15px;
-            margin: 15px 0;
+            padding: 12px 15px;
+            margin: 10px 0;
             font-style: italic;
             color: #666;
-            font-size: 15px;
+            font-size: 14px;
+            line-height: 1.5;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             animation: noteFloat 3s infinite;
         }
@@ -619,13 +621,13 @@
             }
             
             .page {
-                padding: 45px 30px;
+                padding: 35px 28px;
                 border-radius: 30px;
             }
             
-            .message-icon, .question-icon {
+            .message-icon {
                 font-size: 65px;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
             }
             
             .message {
@@ -639,13 +641,19 @@
             }
             
             .question {
-                font-size: 32px;
-                margin: 25px 0;
+                font-size: 30px;
+                margin: 15px 0 12px;
             }
             
             .question-subtitle {
-                font-size: 18px;
-                margin: 20px 0;
+                font-size: 17px;
+                margin: 12px 0;
+                line-height: 1.5;
+            }
+            
+            .question-icon {
+                font-size: 65px;
+                margin-bottom: 12px;
             }
             
             .thank-you {
@@ -669,14 +677,16 @@
             }
             
             .button-container {
-                min-height: 250px;
-                padding: 25px;
+                min-height: 200px;
+                margin-top: 20px;
+                padding: 20px;
             }
             
             .love-note {
-                padding: 18px;
-                margin: 25px 0;
-                font-size: 16px;
+                padding: 14px 16px;
+                margin: 12px 0;
+                font-size: 15px;
+                line-height: 1.5;
             }
             
             .gif-container {
@@ -692,7 +702,7 @@
         @media (max-width: 600px) {
             body {
                 overflow-x: hidden;
-                padding: 10px;
+                padding: 5px;
             }
             
             .container {
@@ -701,10 +711,10 @@
             }
             
             .page {
-                padding: 25px 20px;
+                padding: 20px 18px;
                 border-radius: 25px;
                 box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-                max-height: 92vh;
+                max-height: 94vh;
             }
             
             .message-container {
@@ -743,15 +753,20 @@
             }
             
             .question {
-                font-size: 26px;
-                margin: 20px 0;
-                line-height: 1.3;
+                font-size: 24px;
+                margin: 10px 0 8px;
+                line-height: 1.2;
             }
             
             .question-subtitle {
-                font-size: 16px;
-                margin: 20px 0;
-                line-height: 1.6;
+                font-size: 15px;
+                margin: 10px 0;
+                line-height: 1.5;
+            }
+            
+            .question-icon {
+                font-size: 55px;
+                margin-bottom: 10px;
             }
             
             .thank-you {
@@ -772,12 +787,12 @@
             }
             
             .btn {
-                padding: 14px 30px;
+                padding: 12px 28px;
                 font-size: 17px;
-                margin: 10px 5px;
+                margin: 8px 5px;
                 border-radius: 40px;
                 width: calc(100% - 10px);
-                max-width: 300px;
+                max-width: 280px;
             }
             
             .buttons-wrapper {
@@ -786,15 +801,17 @@
             }
             
             .button-container {
-                min-height: 220px;
-                padding: 20px 10px;
+                min-height: 160px;
+                margin-top: 15px;
+                padding: 15px 10px;
             }
             
             .love-note {
-                padding: 12px;
-                margin: 12px 0;
-                font-size: 14px;
+                padding: 10px 12px;
+                margin: 8px 0;
+                font-size: 13px;
                 border-radius: 12px;
+                line-height: 1.4;
             }
             
             .gif-container {
@@ -834,7 +851,7 @@
             
             .message-icon, .question-icon {
                 font-size: 50px;
-                margin-bottom: 15px;
+                margin-bottom: 12px;
             }
             
             .message {
@@ -846,13 +863,14 @@
             }
             
             .question {
-                font-size: 23px;
-                margin: 15px 0;
+                font-size: 22px;
+                margin: 8px 0;
             }
             
             .question-subtitle {
-                font-size: 15px;
-                margin: 15px 0;
+                font-size: 14px;
+                margin: 8px 0;
+                line-height: 1.4;
             }
             
             .thank-you {
@@ -871,14 +889,16 @@
             }
             
             .button-container {
-                min-height: 200px;
-                padding: 15px 5px;
+                min-height: 150px;
+                margin-top: 10px;
+                padding: 12px 5px;
             }
             
             .love-note {
-                padding: 12px;
-                margin: 20px 0;
-                font-size: 14px;
+                padding: 10px;
+                margin: 8px 0;
+                font-size: 13px;
+                line-height: 1.4;
             }
             
             .final-message {
@@ -1020,27 +1040,27 @@
             <div class="message-icon">💝</div>
             <div class="message-container">
                 <div class="message active" data-index="0">
-                    <strong>Hey Beautiful Soul! ✨</strong>
+                    <strong>Hey my hayati! ✨</strong>
                     You light up my world like nobody else...<br>
                     The way that you smile melts my heart! 💕
                 </div>
                 <div class="message" data-index="1">
-                    <strong>You're My Sunshine! ☀️</strong>
+                    <strong>You're My Sunshine, my roohi! ☀️</strong>
                     Every moment with you feels like magic...<br>
                     You make even the ordinary feel extraordinary! 🌟
                 </div>
                 <div class="message" data-index="2">
-                    <strong>You're Simply Perfect! 🌹</strong>
+                    <strong>You're Simply Perfect, Noor! 🌹</strong>
                     Your smile is my favorite notification...<br>
                     Your laugh is my favorite sound! 💖
                 </div>
                 <div class="message" data-index="3">
-                    <strong>You Complete Me! 💫</strong>
+                    <strong>You Complete Me, my hayati! 💫</strong>
                     Life without you is like a broken pencil...<br>
                     Pointless! You're the missing piece! 🧩
                 </div>
                 <div class="message" data-index="4">
-                    <strong>You're My Everything! 👑</strong>
+                    <strong>You're My Everything, my roohi! 👑</strong>
                     You're not just my crush anymore...<br>
                     You're my dream come true! ✨💕
                 </div>
@@ -1063,15 +1083,15 @@
         <div class="page" id="page2">
             <div class="question-icon">💕</div>
             <div class="question">
-                Will you be my Valentine? 💝
+                Noor, will you be my Valentine? 💝
             </div>
             <div class="question-subtitle">
-                This Valentine's Day would be absolutely perfect with you! 🌹<br>
-                You're the reason I believe in love at first sight! ✨
+                This Valentine's Day would be absolutely perfect with you, my hayati! 🌹<br>
+                You're the reason I believe in love at first sight, my roohi! ✨
             </div>
             
             <div class="love-note">
-                "In a world full of temporary things,<br>
+                "In a world full of temporary things, Noor,<br>
                 you are my forever feeling..." 💌
             </div>
             
@@ -1091,11 +1111,11 @@
         <div class="page" id="page3">
             <div class="message-icon">🎉</div>
             <div class="thank-you">
-                Yay! Thank You! 💝
+                Yay! Thank You, my hayati! 💝
             </div>
             <div class="thank-you-message">
-                You just made me the happiest person alive! 😊💕<br>
-                This Valentine's Day is going to be AMAZING! 🌹✨<br>
+                You just made me the happiest person alive, Noor! 😊💕<br>
+                This Valentine's Day is going to be AMAZING, my roohi! 🌹✨<br>
                 I promise to make every moment special for you! 💖
             </div>
             
@@ -1104,11 +1124,11 @@
             </div>
             
             <div class="love-note">
-                "And they lived happily ever after..." 📖💕
+                "And they lived happily ever after, Noor..." 📖💕
             </div>
             
             <p class="final-message">
-                Happy Valentine's Day, My Love! 💖🎊🌹
+                Happy Valentine's Day, my hayati! 💖🎊🌹
             </p>
         </div>
     </div>
